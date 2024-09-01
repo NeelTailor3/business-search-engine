@@ -8,6 +8,8 @@ function RegisterForm({ handleClose }) {
     category: '',
     location: '',
     description: '',
+    email:'',
+    address:'',
     type: 'non-prime', // default to non-prime
   });
 
@@ -21,7 +23,7 @@ function RegisterForm({ handleClose }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/businesses', formData);
+      await axios.post('http://localhost:3001/api/businesses', formData);
       handleClose(); // Close the modal after successful submission
     } catch (err) {
       console.error('Error registering business:', err);
@@ -71,6 +73,30 @@ function RegisterForm({ handleClose }) {
           value={formData.description}
           onChange={handleChange}
           rows={3}
+        />
+      </Form.Group>
+
+      <Form.Group controlId="formEmail">
+        <Form.Label>Email</Form.Label>
+        <Form.Control
+          type="email"
+          name="email"
+          placeholder="Enter business email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+      </Form.Group>
+
+      <Form.Group controlId="formAddress">
+        <Form.Label>Address</Form.Label>
+        <Form.Control
+          type="text"
+          name="address"
+          placeholder="Enter business address"
+          value={formData.address}
+          onChange={handleChange}
+          required
         />
       </Form.Group>
 

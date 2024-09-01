@@ -1,15 +1,27 @@
 import React from 'react';
+import { Card } from 'react-bootstrap';
 
 function BusinessList({ businesses }) {
   return (
-    <div>
-      {businesses.map((business) => (
-        <div key={business._id}>
-          <h2>{business.name}</h2>
-          <p>{business.category}</p>
-          <p>{business.location}</p>
-          <p>{business.description}</p>
-        </div>
+    <div className="business-list-container">
+      {businesses.map((business, index) => (
+        <Card key={index} className="business-card">
+          <Card.Body>
+            <Card.Title className="business-name">{business.name}</Card.Title>
+            <Card.Subtitle className="mb-2 text-muted business-location">
+              Location: {business.location}
+            </Card.Subtitle>
+            <Card.Text className="business-description">
+              {business.description}
+            </Card.Text>
+            <Card.Text className="business-email">
+              Email: {business.email}
+            </Card.Text>
+            <Card.Text className="business-address">
+              Address: {business.address}
+            </Card.Text>
+          </Card.Body>
+        </Card>
       ))}
     </div>
   );

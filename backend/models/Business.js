@@ -14,6 +14,12 @@ const businessSchema = new mongoose.Schema({
     required: true,
   },
   description: String,
+  email: { 
+    type: String, 
+    required: true },
+  address: { 
+    type: String, 
+    required: true },
 });
 
 const Business = mongoose.model('Business', businessSchema);

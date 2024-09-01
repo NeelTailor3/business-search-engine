@@ -53,17 +53,68 @@ input[type="text"] {
   border-radius: 5px;
 }
 
-.BusinessList {
+.business-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   margin-top: 20px;
+  padding: 0 15px;
 }
 
-.BusinessList h2 {
+.business-card {
+  background-color: #f8f9fa;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.business-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.business-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #343a40;
+  margin-bottom: 10px;
+}
+
+.business-location,
+.business-email,
+.business-address {
+  font-size: 1rem;
+  color: #6c757d;
   margin-bottom: 5px;
 }
 
-.BusinessList p {
-  margin: 5px 0;
-  color: #666;
+.business-description {
+  font-size: 1rem;
+  color: #495057;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .business-list-container {
+    padding: 0 10px;
+  }
+
+  .business-card {
+    padding: 15px;
+  }
+
+  .business-name {
+    font-size: 1.25rem;
+  }
+
+  .business-location,
+  .business-email,
+  .business-address,
+  .business-description {
+    font-size: 0.9rem;
+  }
 }
 
 .navbar {

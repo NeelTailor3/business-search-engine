@@ -8,7 +8,7 @@ function SearchBar({ setBusinesses }) {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get("/api/businesses", {
+      const response = await axios.get("http://localhost:3001/api/businesses", {
         params: { search: searchTerm },
       });
       setBusinesses(response.data);
