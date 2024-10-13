@@ -5,7 +5,10 @@ function BusinessList({ businesses }) {
   return (
     <div className="business-list-container">
       {businesses.map((business, index) => (
-        <Card key={index} className="business-card">
+        <Card
+          key={index}
+          className={`business-card ${business.type === 'prime' ? 'prime-business-card' : ''}`}
+        >
           <Card.Body>
             <Card.Title className="business-name">{business.name}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted business-location">
@@ -19,6 +22,9 @@ function BusinessList({ businesses }) {
             </Card.Text>
             <Card.Text className="business-address">
               Address: {business.address}
+            </Card.Text>
+            <Card.Text className="business-type">
+              Business Type: {business.type}
             </Card.Text>
           </Card.Body>
         </Card>
